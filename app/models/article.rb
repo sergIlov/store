@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: articles
@@ -14,4 +15,9 @@
 
 
 class Article < ApplicationRecord
+  has_many :genreble_genres, as: :genreble
+  has_many :genres, through: :genreble_genres
+
+  has_many :authorable_authors, as: :authorable
+  has_many :authors, through: :authorable_authors
 end
