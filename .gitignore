@@ -13,5 +13,6 @@
 !/log/.keep
 !/tmp/.keep
 .idea/*
+config/database.yml
 
 .byebug_history
