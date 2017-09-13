@@ -27,7 +27,9 @@ gem "puma", "~> 3.7"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: %i[mri mingw x64_mingw]
-  gem "factory_girl"
+  gem "rspec-rails", "~> 3.6"
+  gem "faker", git: "git://github.com/stympy/faker.git", branch: "master"
+  gem "factory_girl_rails"
 end
 
 group :development do

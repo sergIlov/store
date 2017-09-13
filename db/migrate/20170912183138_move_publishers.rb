@@ -5,7 +5,7 @@ class MovePublishers < ActiveRecord::Migration[5.1]
     end.to_h
 
     publishers_map.each do |publisher_name, publisher_id|
-      Book.where(publisher: publisher_name).update_all(publisher_id: publisher_id)
+      Book.where("publisher = ?", publisher_name).update_all(publisher_id: publisher_id)
     end
   end
 
