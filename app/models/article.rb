@@ -17,4 +17,9 @@ class Article < ApplicationRecord
 
   has_many :authorable_authors, as: :authorable
   has_many :authors, through: :authorable_authors
+
+  def as_json(options = {})
+    default_options = { except: [:name_size_prime], include: { authors: { only: :name }, genres: { only: :name } } }
+    super(default_options.merge(options))
+  end
 end

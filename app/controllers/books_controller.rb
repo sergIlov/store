@@ -2,10 +2,10 @@
 
 class BooksController < ApplicationController
   def index
-    render json: Book.includes([:publisher, :authors]).to_json(except: [:publisher_id, :name_size_prime], include: { publisher: { only: :name }, authors: { only: :name } })
+    render json: Queries::AllBooksQuery.new.call.as_json
   end
 
   def primes
-    render json: []
+    render json: Queries::PrimeNamesBooksQuery.new.call.as_json
   end
 end

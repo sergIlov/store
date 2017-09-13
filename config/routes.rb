@@ -8,4 +8,10 @@ Rails.application.routes.draw do
       get :primes
     end
   end
+
+  resources :articles, only: :index
+
+  get "search/filter", to: "search#filter"
+
+  get "lists/books", to: "lists#books"
 end

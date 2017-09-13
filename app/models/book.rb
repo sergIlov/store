@@ -35,4 +35,9 @@ class Book < ApplicationRecord
   before_save do
     self.name_size_prime = name.size.in? PRIMES if name_changed?
   end
+
+  def as_json(options = {})
+    default_options = { except: [:publisher_id, :name_size_prime], include: { publisher: { only: :name }, authors: { only: :name }, genres: { only: :name } } }
+    super(default_options.merge(options))
+  end
 end

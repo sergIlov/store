@@ -2,7 +2,14 @@
 
 require "rails_helper"
 
-describe Book do
+describe Book, type: :model  do
+  it { should belong_to :publisher }
+  it { should have_many :authors }
+  it { should have_many :authorable_authors }
+  it { should have_many :genres }
+  it { should have_many :genreble_genres }
+  it { should have_many :single_sorts }
+
   describe "assign name_size_prime" do
     context do "when name size is prime"
                before :each do
